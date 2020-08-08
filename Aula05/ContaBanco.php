@@ -1,17 +1,18 @@
 <?php
 
-require 'cliente.php';
+require_once 'clientebanco.php';
 
-public class ContaBanco {
-  public $numConta;
+class ContaBanco {
+  private $numConta;
   protected $tipo;
-  public $dono;
+  private $dono;
   private $saldo;
-  public $status;
+  private $status;
 
-  public class contaBanco() {
-    this->setSaldo(0);
-    this->setStatus(false);
+  public function ContaBanco() {
+    $this->setSaldo(0);
+    $this->setStatus(false);
+    // echo "<p><br>Conta criada com sucesso<br></p>";
 
   }
 
@@ -29,16 +30,17 @@ public class ContaBanco {
   public function fecharConta() {
     if ($this->getSaldo() > 0) {
       echo "<p>Não é possível fechar uma conta com saldo diferente de Zero</p>";
-    }elseif {
-      echo "<p>Não foi possível realizar esta operação, sua conta está com saldo negativo</p>"
+    }elseif ($this->getSaldo() < 0) {
+      echo "<p>Não foi possível realizar esta operação, sua conta está com saldo negativo</p>";
     } else {
       $this->setStatus(false);
     }
   }
 
   public function depositar($valor) {
-    if($this->getStatus() {
+    if($this->getStatus()) {
       $this->setSaldo($this->getSaldo() + $valor);
+      echo "<p>valor $valor depositado com sucesso".$this->getDono()." </p>";
     } else {
       echo "<p>Essa conta está fechada ou não existe. Verifique os dados e tente novamente</p>";
     }
@@ -47,10 +49,10 @@ public class ContaBanco {
   public function sacar($valor) {
     if($this->getStatus()) {
       if ($this->getSaldo() < $valor) {
-        echo "<p>Seu saldo é insuficiante</p>"
+        echo "<p>Seu saldo é insuficiante</p>";
       } else {
         $this->setSaldo($this->getSaldo() - $valor);
-        echo "<p>valor <?=$valor;?> sacado com sucesso</p>"
+        echo "<p>valor $valor sacado com sucesso".$this->getDono()." </p>";
       }
     } else {
       echo "<p>Essa conta está fechada ou não existe. Verifique os dados e tente novamente</p>";
@@ -60,10 +62,9 @@ public class ContaBanco {
   public function taxaTransacao() {
     if($this->getStatus()){
       if($this->getTipo() == "CC" || $this->getTipo() == "cc") {
-      $this->setSaldo($this->getSaldo() - 20);
-
-      } else ($this->getTipo() == "CP" || $this->getTipo() == "cp") {
         $this->setSaldo($this->getSaldo() - 20);
+      } elseif ($this->getTipo() == "CP" || $this->getTipo() == "cp") {
+        $this->setSaldo($this->getSaldo() - 50);
       }
     }else {
       echo "<p>Essa conta está fechada ou não existe. Verifique os dados e tente novamente</p>";
@@ -80,7 +81,7 @@ public class ContaBanco {
   }
 
   public function getTipo() {
-    return $this->tipo
+    return $this->tipo;
   }
 
   public function setTipo($tipo) {
@@ -88,7 +89,7 @@ public class ContaBanco {
   }
 
   public function getDono() {
-    return $this->dono
+    return $this->dono;
   }
 
   public function setDono($dono) {
@@ -96,7 +97,7 @@ public class ContaBanco {
   }
 
   public function getSaldo() {
-    return $this->saldo
+    return $this->saldo;
   }
 
   public function setSaldo($saldo) {
@@ -104,7 +105,7 @@ public class ContaBanco {
   }
 
   public function getStatus() {
-    return $this->status
+    return $this->status;
   }
 
   public function setStatus($status) {

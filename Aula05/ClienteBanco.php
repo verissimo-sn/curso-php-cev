@@ -1,6 +1,6 @@
 <?php
 
-require 'contabanco.php';
+require_once 'contabanco.php';
 
 class ClienteBanco {
   private $nome;
@@ -16,11 +16,11 @@ class ClienteBanco {
   }
 
   public function limparNome() {
-    return this->inadimplente = false;
+    return $this->setInadimplente(false);
   }
 
   public function sujarNome() {
-    return this->inadimplente = true;
+    return $this->setInadimplente(true);
   }
 
   public function getNome() {
@@ -28,7 +28,7 @@ class ClienteBanco {
   }
 
   public function setNome($nome) {
-    return this->nome = $nome;
+    return $this->nome = $nome;
   }
 
   public function getIdade() {
@@ -36,7 +36,7 @@ class ClienteBanco {
   }
 
   public function setIdade($idade) {
-    return this->idade = $idade;
+    return $this->idade = $idade;
   }
 
   public function getGenero() {
@@ -44,7 +44,7 @@ class ClienteBanco {
   }
 
   public function setGenero($genero) {
-    return this->genero = $genero;
+    return $this->genero = $genero;
   }
 
   public function getInadimplente() {
@@ -52,7 +52,7 @@ class ClienteBanco {
   }
 
   public function setInadimplente($inadimplente) {
-    return this->inadimplente = $inadimplente;
+    return $this->inadimplente = $inadimplente;
   }
 
 }
