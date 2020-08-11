@@ -10,9 +10,9 @@
   <?php
     require_once 'controleremoto.php';
 
-    $controle1 = new ControleRemoto;
-    $controle1->ligar();
-    $controle1->abrirMenu();
+    $controle = new ControleRemoto;
+    $controle->ligar();
+    $controle->abrirMenu();
   ?>
 </body>
 </html>

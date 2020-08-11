@@ -8,7 +8,7 @@ class ControleRemoto implements Controlador {
   private $tocando;
 
   //construtor
-  function ControleRemoto() {
+  function __construct() {
     $this->setLigado(false);
     $this->setVolume(50);
     $this->setTocando(false);
