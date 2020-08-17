@@ -6,12 +6,13 @@
   <title> - Aula 08</title>
 </head>
 <body>
-  <?php
+<pre>
+  <?php 
 
   require_once "lutador.php";
   require_once "luta.php";
 
-  echo "<p>##### Bem vindo ao UFC - Conheça os lutadores de dessa noite#####<p><br>";
+  echo "<p>##### Bem vindo ao UFC - Conheça os lutadores de dessa noite #####<p><br>";
 
   $lutador= array();
 
@@ -35,6 +36,11 @@
 
   echo "<p>##### IIIIIIIIT's Tiiiiime #####<p><br>";
 
+  $UEC01 = new Luta();
+  $UEC01->marcarLuta($lutador[5], $lutador[4]);
+  $UEC01->lutar();
+
   ?>
+</pre>
 </body>
 </html>

@@ -9,8 +9,8 @@ class Luta {
   private $rounds;
   private $aprovada;
 
-  public function marvarLuta($lutador1, $lutador2) {
-    if(($lutador1.getCategoria() == $lutador2.getCategoria()) && ($lutador1 != $lutador2)) {
+  public function marcarLuta($lutador1, $lutador2) {
+    if(($lutador1->getCategoria() == $lutador2->getCategoria()) && ($lutador1 != $lutador2)) {
       $this->aprovada = true;
       $this->desafiante = $lutador1;
       $this->desafiado = $lutador2;
@@ -34,15 +34,15 @@ class Luta {
           break;
 
         case '1': //desafiante vence;
-          echo "<p>O Desafiante" . $this->desafiante->getNome() . "Venceu!</p>";
-          $this->desafiante->vencerLuta();
+          echo "<p>O Desafiante " . $this->desafiante->getNome() . " Venceu!</p>";
+          $this->desafiante->ganharLuta();
           $this->desafiado->perderLuta();
           break;
 
         case '2': //desafiado vence;
-          echo "<p>O Desafiado" . $this->desafiado->getNome() . "Venceu!</p>";
+          echo "<p>O Desafiado " . $this->desafiado->getNome() . " Venceu!</p>";
           $this->desafiante->perderLuta();
-          $this->desafiado->vencerLuta();
+          $this->desafiado->ganharLuta();
           break;
       }
 
