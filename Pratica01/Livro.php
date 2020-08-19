@@ -15,11 +15,15 @@ class Livro implements Publicacao {
     $this->titulo = $titulo;
     $this->autor = $autor;
     $this->totPaginas = $totPaginas;
+    $this->pagAtual = 0;
+    $this->aberto = false;
     $this->leitor = $leitor;
   }
 
-  private function detalhes() {
-
+  function detalhes() {
+    echo "Livro ".$this->getTitulo()." Escrito por ".$this->getAutor();
+    echo "<br> Total de Páginas ".$this->getTotPaginas()." Atual ".$this->getPagAtual();
+    echo "<br> Sendo lido por ".$this->leitor->getNome();
   }
 
   //metodos abstratos
@@ -31,16 +35,20 @@ class Livro implements Publicacao {
     $this->setAberto(false);
   }
 
-  function folhear() {
-    
+  function folhear($pagina) {
+    if($pagina>$this->getTotPaginas()) {
+      $this->setPagAtual(0);
+    } else {
+      $this->setPagAtual($pagina);
+    }
   }
 
   function avancarPag() {
-    $this->setPagAtual($this->getPagAtual() ++);
+    $this->setPagAtual($this->getPagAtual() + 1);
   }
 
   function voltarPag() {
-    $this->setPagAtual($this->getPagAtual() --);
+    $this->setPagAtual($this->getPagAtual() - 1);
   }
 
 
